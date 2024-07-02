@@ -1,0 +1,25 @@
+<div class="blog-list">
+  <h2>Blog Posts</h2>
+  <div *ngIf="blogs.length > 0; else noBlogs">
+    <div *ngFor="let blog of visibleBlogs; let i = index" class="blog-item">
+      <h3>{{ blog.title }}</h3>
+      <p><strong>Author:</strong> {{ blog.author }}</p>
+      <p><strong>Content Type:</strong> {{ blog.contentType }}</p>
+      <p><strong>Art Type:</strong> {{ blog.artType }}</p>
+      <p><strong>Content URL:</strong> <a href="{{ blog.contentUrl }}" target="_blank">{{ blog.contentUrl }}</a></p>
+      <form [formGroup]="commentaireForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="commentaire">Ajouter commentaire</label>
+          <input id="commentaire" formControlName="commentaire" type="text" />
+        </div>
+      </form>
+      <button type="submit" [disabled]="commentaireForm.invalid">Commenter</button>
+    </div>
+  </div>
+  <ng-template #noBlogs>
+    <p>No blogs available.</p>
+  </ng-template>
+  <div *ngIf="blogs.length > visibleBlogs.length" class="show-more">
+    <button (click)="showMore()">Show More</button>
+  </div>
+</div>
