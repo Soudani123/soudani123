@@ -1,20 +1,191 @@
+// list-blog.component.scss
+
+// Import variables first
+@import 'src/assets/scss/variables';
+
+// Styles for the blog list component
 .blog-list {
-    padding: 20px;
-  
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+  padding: 20px;
+
+  h2 {
+    color: $primary;
+    margin-bottom: 20px;
+  }
+
+  .add-blog-button {
+    display: block;
+    width: 300px; // Adjust width as needed for larger button
+    padding: 20px; // Increased padding for larger button
+    background-color: $primary;
+    color: $white;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    margin-bottom: 20px; // Space below the button
+    transition: background-color 0.3s ease;
+    text-align: left; // Align button text to the left
+
+    &:hover {
+      background-color: darken($primary, 10%);
     }
-  
+  }
+
+  // Other styles for each blog item
+  .blog-item {
+    background-color: $cardbg;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid $borderColor;
+    border-radius: $border-radius;
+    box-shadow: $cardshadow;
+
+    h3 {
+      margin-top: 0;
+      color: $textPrimary;
+    }
+
+    p {
+      margin: 5px 0;
+
+      a {
+        color: $primary;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
     .blog-item {
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 5px;
-  
-      h3 {
-        margin: 0 0 10px 0;
+      display: flex; /* Use flexbox to align image and content */
+      align-items: center; /* Center items vertically */
+    }
+    
+    .blog-image-container {
+      flex: 0 0 auto; /* Prevent image from stretching */
+      margin-right: 20px; /* Adjust spacing between image and content */
+    }
+    
+    .blog-image {
+      max-width: 300px; /* Adjust image size as needed */
+      height: auto;
+    }
+    .delete-button {
+      background-color: #f44336;
+      color: $white;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: $border-radius;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #c62828;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:disabled {
+        background-color: #e0e0e0;
+        cursor: not-allowed;
+      }
+    }
+
+    .update-button {
+      background-color: #2196f3;
+      color: $white;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: $border-radius;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0d47a1;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    form {
+      margin-top: 10px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: $textPrimary;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid $borderColor;
+        border-radius: $border-radius;
+
+        &:focus {
+          border-color: $primary;
+          outline: none;
+        }
+      }
+    }
+
+    button[type="submit"] {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: $primary;
+      color: $white;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:disabled {
+        background-color: lighten($primary, 20%);
+        cursor: not-allowed;
+      }
+
+      &:hover:not(:disabled) {
+        background-color: darken($primary, 10%);
       }
     }
   }
-  
+
+  .show-more {
+    text-align: center;
+    margin-top: 20px;
+
+    button {
+      padding: 10px 20px;
+      background-color: $primary;
+      color: $white;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($primary, 10%);
+      }
+    }
+  }
+
+  .success-snackbar {
+    background-color: #4caf50;
+  }
+
+  .error-snackbar {
+    background-color: #f44336;
+  }
+}

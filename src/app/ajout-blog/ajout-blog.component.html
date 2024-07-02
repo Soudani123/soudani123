@@ -3,26 +3,25 @@
     <label for="title">Title</label>
     <input id="title" formControlName="title" type="text" />
   </div>
-
   <div>
     <label for="author">Author</label>
     <input id="author" formControlName="author" type="text" />
   </div>
-
   <div>
     <label for="contentType">Content Type</label>
     <input id="contentType" formControlName="contentType" type="text" />
   </div>
-
   <div>
     <label for="artType">Art Type</label>
     <input id="artType" formControlName="artType" type="text" />
   </div>
-
   <div>
     <label for="contentUrl">Content URL</label>
     <input id="contentUrl" formControlName="contentUrl" type="text" />
   </div>
-
+  <div>
+    <label for="image">Image</label>
+    <input id="image" type="file" (change)="onFileSelected($event)" />
+  </div>
   <button type="submit" [disabled]="blogForm.invalid">Add Blog</button>
 </form>

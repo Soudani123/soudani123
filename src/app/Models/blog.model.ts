@@ -1,9 +1,12 @@
+// blog.model.ts
+
 export interface Blog {
-    title: string;
-    author: string;
-    contentType: string;
-    artType: string;
-    contentUrl: string;
-    createdAt?: Date; // Optional, as it can be set by the backend
-  }
-  
+  _id: string;
+  title: string;
+  author: string;
+  contentType: string;
+  artType: string;
+  contentUrl: string;
+  imageUrl: string; // Add this property
+  createdAt?: Date;
+}

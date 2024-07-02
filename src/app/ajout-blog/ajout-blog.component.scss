@@ -1,5 +1,7 @@
-@import 'src/assets/scss/variables';
+// Import variables first
+@import 'src/assets/scss/variables'; // Adjust the path if necessary
 
+// Styles for the form container
 form {
   background-color: $cardbg;
   padding: 20px;
@@ -9,9 +11,11 @@ form {
   margin: 20px auto;
   box-shadow: $cardshadow;
 
+  // Styles for inner div elements
   div {
     margin-bottom: 20px;
 
+    // Label styles
     label {
       display: block;
       margin-bottom: 5px;
@@ -19,6 +23,7 @@ form {
       font-weight: 600;
     }
 
+    // Input styles
     input {
       width: 100%;
       padding: 10px;
@@ -31,6 +36,7 @@ form {
     }
   }
 
+  // Styles for the submit button
   button[type="submit"] {
     display: block;
     width: 100%;
@@ -40,10 +46,16 @@ form {
     border: none;
     border-radius: $border-radius;
     cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+
+    // Disabled state styles
     &:disabled {
       background-color: lighten($primary, 20%);
       cursor: not-allowed;
     }
+
+    // Hover styles
     &:hover:not(:disabled) {
       background-color: darken($primary, 10%);
     }

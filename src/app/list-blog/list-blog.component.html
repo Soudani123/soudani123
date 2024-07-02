@@ -1,24 +1,76 @@
 <div class="blog-list">
   <h2>Blog Posts</h2>
+  <button class="add-blog-button" (click)="navigateToAddBlog()">Add Blog</button>
   <div *ngIf="blogs.length > 0; else noBlogs">
     <div *ngFor="let blog of visibleBlogs; let i = index" class="blog-item">
-      <h3>{{ blog.title }}</h3>
-      <p><strong>Author:</strong> {{ blog.author }}</p>
-      <p><strong>Content Type:</strong> {{ blog.contentType }}</p>
-      <p><strong>Art Type:</strong> {{ blog.artType }}</p>
-      <p><strong>Content URL:</strong> <a href="{{ blog.contentUrl }}" target="_blank">{{ blog.contentUrl }}</a></p>
-      <form [formGroup]="commentaireForm" (ngSubmit)="onSubmit()">
-        <div>
-          <label for="commentaire">Ajouter commentaire</label>
-          <input id="commentaire" formControlName="commentaire" type="text" />
+      <!-- Display Image -->
+      <div class="blog-image-container">
+        <img src="assets/images/svgs/blogimage.jpg" alt="Blog Image" class="blog-image">
+      </div>
+      
+      <!-- Blog Content -->
+      <div class="blog-content">
+        <h3>{{ blog.title }}</h3>
+        <p><strong>Author:</strong> {{ blog.author }}</p>
+        <p><strong>Content Type:</strong> {{ blog.contentType }}</p>
+        <p><strong>Art Type:</strong> {{ blog.artType }}</p>
+        <p><strong>Content URL:</strong> <a href="{{ blog.contentUrl }}" target="_blank">{{ blog.contentUrl }}</a></p>
+        
+        <!-- Comment Form -->
+        <form [formGroup]="commentaireForm" (ngSubmit)="onSubmitCommentaire(blog)">
+          <div>
+            <label for="commentaire">Ajouter commentaire</label>
+            <input id="commentaire" formControlName="commentaire" type="text" />
+          </div>
+          <button type="submit" [disabled]="commentaireForm.invalid">Commenter</button>
+        </form>
+
+        <!-- Update Button -->
+        <button class="update-button" (click)="onUpdate(blog)">Update</button>
+        
+        <!-- Delete Button -->
+        <button class="delete-button" (click)="onDelete(blog)">Delete</button>
+
+        <!-- Update Form (conditionally shown) -->
+        <div *ngIf="updateForm.value.title === blog.title"> <!-- Adjust condition as per your need -->
+          <h3>Update Blog</h3>
+          <form [formGroup]="updateForm" (ngSubmit)="saveUpdate()">
+            <div>
+              <label for="updateTitle">Title</label>
+              <input id="updateTitle" formControlName="title" type="text" />
+            </div>
+
+            <div>
+              <label for="updateAuthor">Author</label>
+              <input id="updateAuthor" formControlName="author" type="text" />
+            </div>
+
+            <div>
+              <label for="updateContentType">Content Type</label>
+              <input id="updateContentType" formControlName="contentType" type="text" />
+            </div>
+
+            <div>
+              <label for="updateArtType">Art Type</label>
+              <input id="updateArtType" formControlName="artType" type="text" />
+            </div>
+
+            <div>
+              <label for="updateContentUrl">Content URL</label>
+              <input id="updateContentUrl" formControlName="contentUrl" type="text" />
+            </div>
+
+            <button type="submit" [disabled]="updateForm.invalid">Save Update</button>
+          </form>
         </div>
-      </form>
-      <button type="submit" [disabled]="commentaireForm.invalid">Commenter</button>
+      </div>
     </div>
   </div>
+
   <ng-template #noBlogs>
     <p>No blogs available.</p>
   </ng-template>
+
   <div *ngIf="blogs.length > visibleBlogs.length" class="show-more">
     <button (click)="showMore()">Show More</button>
   </div>

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BlankComponent } from './layouts/blank/blank.component';
 import { FullComponent } from './layouts/full/full.component';
 import { AjoutBlogComponent } from './ajout-blog/ajout-blog.component';
-import { ListBlogComponent } from './list-blog/list-blog.component'; // Import the new component
+import { ListBlogComponent } from './list-blog/list-blog.component';
 
 const routes: Routes = [
   {
@@ -33,14 +33,18 @@ const routes: Routes = [
           import('./pages/extra/extra.module').then((m) => m.ExtraModule),
       },
       {
-        path: 'add-blog', // Route for adding a blog
+        path: 'add-blog',
         component: AjoutBlogComponent
       },
       {
-        path: 'list-blogs', // Route for listing blogs
+        path: 'list-blogs',
         component: ListBlogComponent
       },
     ],
+  },
+  {
+    path: 'update-blog/:id',
+    component: AjoutBlogComponent // Remplacez par votre composant de mise à jour de blog si différent
   },
   {
     path: '',
@@ -62,3 +66,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+
