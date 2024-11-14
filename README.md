@@ -2,7 +2,7 @@
 <h1 align="center">Hi 👋, I'm sana</h1>
 <h3 align="center">A passionate fullstack Angular Spring Boot developer</h3>
 
-- 🌱 I’m currently learning Devops 
+- 🌱 I’m currently learning Cloud and Devops at ESPRIT 
 
 - 📫 How to reach me **sanasoudani405@gmail.com**
 
