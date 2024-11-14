@@ -1,8 +1,8 @@
 
 <h1 align="center">Hi 👋, I'm sana</h1>
-<h3 align="center">A passionate frontend developer from Tunisia</h3>
+<h3 align="center">A passionate fullstack Angular Spring Boot developer</h3>
 
-- 🌱 I’m currently learning **Angular CLI Spring Boot**
+- 🌱 I’m currently learning Devops 
 
 - 📫 How to reach me **sanasoudani405@gmail.com**
 
